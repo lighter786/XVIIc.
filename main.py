@@ -28,3 +28,12 @@ class SpecificationСhar(Char):
 
     def Damage(self):
         self.health -= int() #Функция отвечающая за изменение здоровья
+
+    def Health(self): #Функция здоровья
+        if self.health == 100:
+            print("Уровень здоровья максимальный!")
+        elif 20 <= self.health <= 99:
+            print(f"Уровень здоровья {self.health}")
+        else:
+            print("Ваше здоровье критически низкое!")
+            print(f"Уровень здоровья {self.health}")
