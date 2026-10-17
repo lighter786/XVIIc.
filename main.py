@@ -5,19 +5,16 @@ class Char:
 
     def Char_info(self):
         print(f"""Имя: {self.name} Возраст: {self.age}""")
-        #Здоровье
-        #Скиллы
-        #Баффы
-
 
 class SpecificationСhar(Char):
     def __init__(self, name, age):#Bafs - Временные эффекты (health, skils, bafs)
         super().__init__(name, age)
-        self.level = 0
+        self.point = 0 #Выполнено
+        self.level = 0 #Выполнено
         self.health = 100
         self.skils = {}
         self.bafs = {}
-        self.point = 0
+        
 
     def Level(self):#Уровень персонажа
         print("Ваш уровень повышен!")
@@ -28,3 +25,6 @@ class SpecificationСhar(Char):
             if self.point > 2:
                 self.level += 1
                 self.Level()
+
+    def Damage(self):
+        self.health -= int() #Функция отвечающая за изменение здоровья
