@@ -1,3 +1,5 @@
+from random import randint
+
 class Char:
     def __init__(self, name, age):
         self.name = name
@@ -10,8 +12,8 @@ class SpecificationСhar(Char):
     def __init__(self, name, age):#Bafs - Временные эффекты (health, skils, bafs)
         super().__init__(name, age)
         self.point = 0 #Выполнено
-        self.level = 0 #Выполнено
-        self.health = 100
+        self.level = 0 #Выполнено 92%
+        self.health = 100 #Выполнено 
         self.skils = {}
         self.bafs = {}
         
@@ -21,13 +23,13 @@ class SpecificationСhar(Char):
         print(f"Ваш уровень: {self.level}")
 
     def LevelPoint(self):
-            self.point += 3
+            self.point += randint(1, 5)
             if self.point > 2:
                 self.level += 1
                 self.Level()
 
     def Damage(self):
-        self.health -= int() #Функция отвечающая за изменение здоровья
+        self.health -= 2 #Функция отвечающая за изменение здоровья
 
     def Health(self): #Функция здоровья
         if self.health == 100:
@@ -36,4 +38,13 @@ class SpecificationСhar(Char):
             print(f"Уровень здоровья {self.health}")
         else:
             print("Ваше здоровье критически низкое!")
+            print(f"Уровень здоровья {self.health}")
+
+    def Eat(self):
+        self.health += randint(7, 12)
+        if self.health >= 100:
+            self.health = 100
+            print("Ваше здоровье восстановлено!")
+            print(f"Уровень здоровья {self.health}")
+        else:
             print(f"Уровень здоровья {self.health}")
