@@ -5,6 +5,9 @@ class Char:
 
     def Char_info(self):
         print(f"""Имя: {self.name} Возраст: {self.age}""")
+        #Здоровье
+        #Скиллы
+        #Баффы
 
 
 class SpecificationСhar(Char):
@@ -19,3 +22,9 @@ class SpecificationСhar(Char):
     def Level(self):#Уровень персонажа
         print("Ваш уровень повышен!")
         print(f"Ваш уровень: {self.level}")
+
+    def LevelPoint(self):
+            self.point += 3
+            if self.point > 2:
+                self.level += 1
+                self.Level()
