@@ -15,3 +15,7 @@ class SpecificationСhar(Char):
         self.skils = {}
         self.bafs = {}
         self.point = 0
+
+    def Level(self):#Уровень персонажа
+        print("Ваш уровень повышен!")
+        print(f"Ваш уровень: {self.level}")
