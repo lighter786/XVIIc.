@@ -14,7 +14,6 @@ class SpecificationСhar(Char):
         self.point = 0 #Выполнено
         self.level = 0 #Выполнено 92%
         self.health = 100 #Выполнено 
-        self.skils = {}
         self.bafs = {}
         
 
@@ -48,3 +47,7 @@ class SpecificationСhar(Char):
             print(f"Уровень здоровья {self.health}")
         else:
             print(f"Уровень здоровья {self.health}")
+
+class Skills:
+    def __init__(self):
+        self.skils = {}
