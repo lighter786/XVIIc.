@@ -40,13 +40,13 @@ class Char:
 
 class SpecificationСhar(Char):
     def __init__(self, name, age):
-        super().__init__(name, age)#Bafs - Временные эффекты (health, skils, bafs)
-        self.inventory = Inventory()
+        super().__init__(name, age)
+        self.inventory = Inventory() #Выполнено
+        self.skills = Skills() #Выполнено
         self.point = 0 #Выполнено
-        self.level = 0 #Выполнено 92%
+        self.level = 0 #Выполнено
         self.health = 100 #Выполнено 
         self.bafs = {}
-        self.skills = {}
         
     def Level(self):#Уровень персонажа
         print("Ваш уровень повышен!")
@@ -105,15 +105,5 @@ class SpecificationСhar(Char):
 
 class Skills:
     def __init__(self):
-        self.skils_for_add = ["Лесоруб"]
-        self.skils = []
-
-    def AddSkills(self):
-        self.random_skills = choice(self.skils_for_add)
-        if self.skils_for_add in self.skils:
-            print(f"Навык {self.random_skills} ужеизучен!")
-        else:
-            print(f"Добавлен новый навык {self.random_skills}| 1ур.")
-
-    def ShowSkills(self):
-        return self.skils
+        self.skils_for_add = ["Лесоруб", "Шахтер", "Рыбак", "Кузнец"]
+        self.skills = {}
