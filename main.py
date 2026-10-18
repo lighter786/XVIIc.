@@ -129,7 +129,16 @@ class SpecificationСhar(Char):
                 del self.bafs[buff_name]
                 print(f"Бафф {buff_name} кочнился!")
             else:
-                print(f"Бафф {buff_name} продлится еще {buff.duration} хода")       
+                print(f"Бафф {buff_name} продлится еще {buff.duration} хода")
+    
+    def Show_Baffs(self):
+        if not self.bafs:
+            print("У вас нет активных баффов")
+            return
+
+        print("Активные баффы")
+        for name, buff in self.bafs.items():
+            print(f"{name} (Эффект:{buff.stat_modifier} продлиться продлится еще {buff.duration} ходов")       
 
 class Skills:
     def __init__(self):
