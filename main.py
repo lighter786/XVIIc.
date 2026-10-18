@@ -37,7 +37,7 @@ class Inventory:
             print("--" * 10) 
 
     def Action_bufs(self):
-            if Buffs.name not in self.bafs:
+            if Buff.name not in self.bafs:
                 print("Зелий нет")
     
 class Char:
