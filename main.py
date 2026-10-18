@@ -41,6 +41,7 @@ class Char:
 class SpecificationСhar(Char):
     def __init__(self, name, age):
         super().__init__(name, age)#Bafs - Временные эффекты (health, skils, bafs)
+        self.inventory = Inventory()
         self.point = 0 #Выполнено
         self.level = 0 #Выполнено 92%
         self.health = 100 #Выполнено 
@@ -74,6 +75,21 @@ class SpecificationСhar(Char):
             print(f"Уровень здоровья {self.health}")
         else:
             print(f"Уровень здоровья {self.health}")
+
+    def Use_Item(self, item_name):
+        if item_name not in self.inventory.items:
+            print(f"Предмета {item_name} нет в инвентаре")
+            return
+
+        item = self.inventory.items[item_name]
+
+        if item.item_type == "heal":
+            self.health = min(100, self.health + item.effect)
+            print(f"Вы приняли {item.name} здоровье {self.health}")
+
+            self.inventory.remove_item(item_name)
+        else:
+            print(f"Вы не знаете как использовать {item_name}")            
 
 class Skills:
     def __init__(self):
