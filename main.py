@@ -21,25 +21,50 @@ class Inventory:
         print(f"{item.name} добвален в инвентарь")
 
     def remove_item(self, item_name):
-            if item_name in self.items:
-                del self.items[item_name]
-                print(f"{item_name} удален из инвенторя")
-            else:
-                print(f"Предмета {item_name} нет в инвентаре")
+        if item_name in self.items:
+            del self.items[item_name]
+            print(f"{item_name} удален из инвенторя")
+        else:
+            print(f"Предмета {item_name} нет в инвентаре")
 
     def Show_Inventory(self):
-            if not self.items:
-                return "Инвентарь пуст"
-    
-            print("Ваш инвентарь")
-            for name, item in self.items.items():
-                print(f"- {name} (Тип {item.item_type}, эффект {item.effect})")
-            print("--" * 10) 
+        if not self.items:
+            return "Инвентарь пуст"
 
-    def Action_bufs(self):
-            if Buff.name not in self.bafs:
-                print("Зелий нет")
+        print("Ваш инвентарь")
+        for name, item in self.items.items():
+            print(f"- {name} (Тип {item.item_type}, эффект {item.effect})")
+        print("--" * 10) 
+
+class Skills:
+    def __init__(self):
+        self.skils_for_add = ["Лесоруб", "Шахтер", "Рыбак", "Кузнец"]
+        self.skills = {}
+
+    def AddSkills(self):
+        if not self.skils_for_add:
+            print("Извесые навыки изучены")
+            return
+
+        new_skill = choice(self.skils_for_add)
+
+        if new_skill in self.skills:
+            self.skills[new_skill] += 1
+            print(f"Навык {new_skill} изучен ранее | Навык повышен до {self.skills[new_skill]} уровня!")
+        else:
+            self.skills[new_skill] = 1
+            print(f"Получен навык '{new_skill}' | Уровень навыка: 1")
     
+    def ShowSkills(self):
+        if not self.skills:
+            print("Навыки не изучены")
+            return
+
+        print('=' * 10, "Навыки", '=' * 10)
+        for name, level in self.skills.items():
+            print(f"- {name} | Уровень навыка: {level})")
+        print("--" * 25)
+
 class Char:
     def __init__(self, name, age):
         self.name = name
@@ -138,33 +163,4 @@ class SpecificationСhar(Char):
 
         print("Активные баффы")
         for name, buff in self.bafs.items():
-            print(f"{name} (Эффект:{buff.stat_modifier} продлиться продлится еще {buff.duration} ходов")       
-
-class Skills:
-    def __init__(self):
-        self.skils_for_add = ["Лесоруб", "Шахтер", "Рыбак", "Кузнец"]
-        self.skills = {}
-
-    def AddSkills(self):
-        if not self.skils_for_add:
-            print("Извесые навыки изучены")
-            return
-
-        new_skill = choice(self.skils_for_add)
-
-        if new_skill in self.skills:
-            self.skills[new_skill] += 1
-            print(f"Навык {new_skill} изучен ранее | Навык повышен до {self.skills[new_skill]} уровня!")
-        else:
-            self.skills[new_skill] = 1
-            print(f"Получен навык '{new_skill}' | Уровень навыка: 1")
-    
-    def ShowSkills(self):
-        if not self.skills:
-            print("Навыки не изучены")
-            return
-
-        print('=' * 10, "Навыки", '=' * 10)
-        for name, level in self.skills.items():
-            print(f"- {name} | Уровень навыка: {level})")
-        print("--" * 25)
+            print(f"{name} (Эффект:{buff.stat_modifier} продлится еще {buff.duration} ходов")
