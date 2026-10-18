@@ -1,5 +1,11 @@
 from random import *
 
+class Item:
+    def __init__(self, name, item_type, effect = 0):
+        self.name = name
+        self.item_type = item_type
+        self.effect = effect
+
 class Char:
     def __init__(self, name, age):
         self.name = name
