@@ -121,3 +121,13 @@ class Skills:
         else:
             self.skills[new_skill] = 1
             print(f"Получен навык '{new_skill}' | Уровень навыка: 1")
+    
+    def ShowSkills(self):
+        if not self.skills:
+            print("Навыки не изучены")
+            return
+
+        print('=' * 10, "Навыки", '=' * 10)
+        for name, level in self.skills.items():
+            print(f"- {name} | Уровень навыка: {level})")
+        print("--" * 25)
