@@ -1,4 +1,4 @@
-from random import randint
+from random import *
 
 class Char:
     def __init__(self, name, age):
@@ -9,26 +9,23 @@ class Char:
         print(f"""Имя: {self.name} Возраст: {self.age}""")
 
 class SpecificationСhar(Char):
-    def __init__(self, name, age):#Bafs - Временные эффекты (health, skils, bafs)
-        super().__init__(name, age)
+    def __init__(self, name, age):
+        super().__init__(name, age)#Bafs - Временные эффекты (health, skils, bafs)
         self.point = 0 #Выполнено
         self.level = 0 #Выполнено 92%
         self.health = 100 #Выполнено 
         self.bafs = {}
+        self.skills = {}
         
-
     def Level(self):#Уровень персонажа
         print("Ваш уровень повышен!")
         print(f"Ваш уровень: {self.level}")
 
     def LevelPoint(self):
-            self.point += randint(1, 5)
-            if self.point > 2:
-                self.level += 1
-                self.Level()
+        pass
 
     def Damage(self):
-        self.health -= 2 #Функция отвечающая за изменение здоровья
+        self.health -= randint(0, 99) #Функция отвечающая за изменение здоровья
 
     def Health(self): #Функция здоровья
         if self.health == 100:
@@ -50,4 +47,15 @@ class SpecificationСhar(Char):
 
 class Skills:
     def __init__(self):
-        self.skils = {}
+        self.skils_for_add = ["Лесоруб"]
+        self.skils = []
+
+    def AddSkills(self):
+        self.random_skills = choice(self.skils_for_add)
+        if self.skils_for_add in self.skils:
+            print(f"Навык {self.random_skills} ужеизучен!")
+        else:
+            print(f"Добавлен новый навык {self.random_skills}| 1ур.")
+
+    def ShowSkills(self):
+        return self.skils
