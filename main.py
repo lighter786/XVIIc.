@@ -10,6 +10,10 @@ class Inventory:
     def __init__(self):
         self.items = {}
 
+    def add_item(self, item):
+        self.items[item.name] = item
+        print(f"{item.name} добвален в инвентарь")
+
 class Char:
     def __init__(self, name, age):
         self.name = name
