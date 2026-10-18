@@ -6,6 +6,12 @@ class Item:
         self.item_type = item_type
         self.effect = effect
 
+class Buff:
+    def __init__(self, name, duration, stat_modifier):
+        self.name = name
+        self.duration = duration
+        self.stat_modifier = stat_modifier
+
 class Inventory:
     def __init__(self):
         self.items = {}
@@ -28,8 +34,12 @@ class Inventory:
             print("Ваш инвентарь")
             for name, item in self.items.items():
                 print(f"- {name} (Тип {item.item_type}, эффект {item.effect})")
-            print("--" * 10)
+            print("--" * 10) 
 
+    def Action_bufs(self):
+            if Buffs.name not in self.bafs:
+                print("Зелий нет")
+    
 class Char:
     def __init__(self, name, age):
         self.name = name
@@ -43,10 +53,10 @@ class SpecificationСhar(Char):
         super().__init__(name, age)
         self.inventory = Inventory() #Выполнено
         self.skills = Skills() #Выполнено
+        self.bafs = {}
         self.point = 0 #Выполнено
         self.level = 0 #Выполнено
-        self.health = 100 #Выполнено 
-        self.bafs = {}
+        self.health = 100 #Выполнено
         
     def Level(self):#Уровень персонажа
         print("Ваш уровень повышен!")
@@ -101,7 +111,7 @@ class SpecificationСhar(Char):
 
             self.inventory.remove_item(item_name)
         else:
-            print(f"Вы не знаете как использовать {item_name}")            
+            print(f"Вы не знаете как использовать {item_name}")      
 
 class Skills:
     def __init__(self):
