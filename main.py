@@ -14,6 +14,13 @@ class Inventory:
         self.items[item.name] = item
         print(f"{item.name} добвален в инвентарь")
 
+    def remove_item(self, item_name):
+            if item_name in self.items:
+                del self.items[item_name]
+                print(f"{item_name} удален из инвенторя")
+            else:
+                print(f"Предмета {item_name} нет в инвентаре")
+
 class Char:
     def __init__(self, name, age):
         self.name = name
