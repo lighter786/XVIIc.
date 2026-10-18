@@ -53,7 +53,19 @@ class SpecificationСhar(Char):
         print(f"Ваш уровень: {self.level}")
 
     def LevelPoint(self):
-        pass
+        earned = randint(1, 3)
+        self.point += earned
+        print(f"Получено {earned} очков | Очки: {self.point}")
+
+        need_point = (self.level + 1) * 3
+        
+        if self.point >= need_point:
+            self.level += 1
+            self.point -= need_point
+            self.Level()
+        
+        next_point = (self.level + 1) * 3
+        print(f"До следующего уровня {next_point - self.point} очков")
 
     def Damage(self):
         self.health -= randint(0, 99) #Функция отвечающая за изменение здоровья
