@@ -6,6 +6,10 @@ class Item:
         self.item_type = item_type
         self.effect = effect
 
+class Inventory:
+    def __init__(self):
+        self.items = {}
+
 class Char:
     def __init__(self, name, age):
         self.name = name
