@@ -115,7 +115,21 @@ class SpecificationСhar(Char):
 
     def Add_Buffs(self, buff):
             self.bafs[buff.name] = buff
-            print(f"Наложен бафф {buff.name} на {buff.duration} ходов")      
+            print(f"Наложен бафф {buff.name} на {buff.duration} ходов")
+    
+    def Tick_Buffs(self):
+        if not self.bafs:
+            return
+
+        for buff_name in list(self.bafs.keys()):
+            buff = self.bafs[buff_name]
+            buff.duration -= 1
+
+            if buff.duration <= 0:
+                del self.bafs[buff_name]
+                print(f"Бафф {buff_name} кочнился!")
+            else:
+                print(f"Бафф {buff_name} продлится еще {buff.duration} хода")       
 
 class Skills:
     def __init__(self):
