@@ -111,7 +111,11 @@ class SpecificationСhar(Char):
 
             self.inventory.remove_item(item_name)
         else:
-            print(f"Вы не знаете как использовать {item_name}")      
+            print(f"Вы не знаете как использовать {item_name}")
+
+    def Add_Buffs(self, buff):
+            self.bafs[buff.name] = buff
+            print(f"Наложен бафф {buff.name} на {buff.duration} ходов")      
 
 class Skills:
     def __init__(self):
