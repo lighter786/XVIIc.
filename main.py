@@ -21,6 +21,15 @@ class Inventory:
             else:
                 print(f"Предмета {item_name} нет в инвентаре")
 
+    def Show_Inventory(self):
+            if not self.items:
+                return "Инвентарь пуст"
+    
+            print("Ваш инвентарь")
+            for name, item in self.items.items():
+                print(f"- {name} (Тип {item.item_type}, эффект {item.effect})")
+            print("--" * 10)
+
 class Char:
     def __init__(self, name, age):
         self.name = name
